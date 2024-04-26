@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="minus">-</button>
+    <span id="num">1</span>
+    <button id="plus">+</button>
+    <button id="reset">Reset</button>
+
+    <script>
+      const minusBtn = document.getElementById("minus");
+      const plusBtn = document.getElementById("plus");
+      const reset = document.getElementById("reset");
+      const numCount = document.getElementById("num");
+
+      minusBtn.onclick = () => numCount.textContent > 0 ? numCount.textContent-- : numCount
+      plusBtn.onclick = () => numCount.textContent++;
+      reset.onclick = () => (numCount.textContent = 0);
+    </script>
+  </body>
+</html>

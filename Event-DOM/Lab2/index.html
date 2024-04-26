@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <!-- 1 -->
+      <button onclick="alert('by HTML')" id="html">
+        Submit HTML-attribute
+      </button>
+
+      <button id="dom">Submit DOM property</button>
+      <button id="event">Submit Event listener</button>
+    </form>
+
+    <script>
+      // Add
+      // 2
+      const buttonDom = document.getElementById("dom");
+      buttonDom.onclick = () => alert("by DOM property");
+
+      // 3
+      const buttonEvent = document.getElementById("event");
+      let alertEvent = () => alert("by Event Listener");
+      buttonEvent.addEventListener("click", alertEvent);
+
+      //แถม Submit by Form
+      //   const form = document.querySelector("form");
+      //   form.addEventListener("submit", (event) => alert("Submitted by "));
+
+      // Remove
+      //1
+      document.getElementById("html").onclick = null;
+      // 2
+      buttonDom.onclick = null;
+      // 3
+      buttonEvent.removeEventListener("click", alertEvent);
+    </script>
+  </body>
+</html>

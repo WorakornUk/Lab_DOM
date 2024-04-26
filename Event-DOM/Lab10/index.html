@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="province">Province: </label>
+    <select id="province">
+        <option label="Chiang Mai"></option>
+        <option label="Lampang"></option>
+        <option label="Bangkok"></option>
+    </select>
+    <br /><br />
+    <label for="district">District: </label>
+    <select id="district">
+      <option label="Maerim"></option>
+      <option label="Maejoe"></option>
+    </select>
+
+    <script>
+        const province = document.getElementById('province')
+        const provinces = document.querySelectorAll('option')
+        const district = document.getElementById("district")
+
+        province.onchange = () => {
+          for (let el of provinces) {
+              if (el.selected) {
+                  if (el.label == "Lampang"){
+                  district.innerHTML = '<option label="Something 1"></option>'
+                  district.innerHTML +='<option label="Something 2"></option>'
+                  }
+                  else if (el.label == "Bangkok"){
+                    district.innerHTML = '<option label="Another 1"></option>'
+                    district.innerHTML +='<option label="Another 2"></option>'
+                  }
+                  else if (el.label == "Chiang Mai"){
+                    district.innerHTML = '<option label="Maerim"></option>'
+                    district.innerHTML +='<option label="Maejoe"></option>'
+                  }
+                }
+              }
+        }
+    </script>
+  </body>
+</html>

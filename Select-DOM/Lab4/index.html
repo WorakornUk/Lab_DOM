@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h2 class="title-1">List of companies</h2>
+      <ul>
+        <li id="1">Google</li>
+        <li class="active" id="2">Yahoo</li>
+        <li id="3">Tencent</li>
+      </ul>
+    </div>
+    <!-- 
+        จงเขียนคำสั่งเพื่อ access <li> ตัวที่สอง โดยใช้วิธีต่อไปนี้
+        querySelector
+        querySelectorAll
+        getElementsByClassName
+        getElementById
+        getElementsByTagName -->
+
+    <script>
+      let a = document.querySelector(".active");
+      let b = document.querySelectorAll("li")[1];
+      let c = document.getElementsByClassName("active")
+      let d = document.getElementById("2");
+      let e = document.getElementsByTagName("li")[1];
+
+      console.log(a);
+      console.log(b);
+      console.log(c);
+      console.log(d);
+      console.log(e);
+    </script>
+  </body>
+</html>

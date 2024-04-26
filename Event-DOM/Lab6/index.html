@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Click to hide me</button>
+
+    <script>
+        let button = document.querySelector('button')
+        button.onclick = () => button.setAttribute('hidden', true)
+
+        // button.onclick = () => button.style.visibility = "hidden"
+        // button.addEventListener('click', () => button.setAttribute('hidden',true))
+    </script>
+</body>
+</html>

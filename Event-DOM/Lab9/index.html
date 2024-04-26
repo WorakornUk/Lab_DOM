@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .borderRed {
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" placeholder="Phone Number" />
+    <button>Check</button>
+    <p style="color: red"></p>
+
+    <script>
+      const input = document.querySelector("input");
+      const button = document.querySelector("button");
+      const p = document.querySelector("p");
+
+      function check() {
+        if (!input.value) {
+          input.classList.add("borderRed");
+          p.textContent = "Phone number is required";
+        } 
+        else if (isNaN(input.value)) {
+            input.classList.add("borderRed");
+            p.textContent = "Phone number is invalid";
+        }
+        else if (input.value.length !== 10) {
+            input.classList.add("borderRed");
+            p.textContent = "Invalid length";
+        }
+        else {
+          input.classList.remove("borderRed");
+          p.textContent = "";
+          alert("Your number is valid");
+        }
+      }
+
+      button.onclick = check;
+    </script>
+  </body>
+</html>

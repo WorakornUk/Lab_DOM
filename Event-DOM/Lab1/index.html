@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Click Me</button>
+
+    <script>
+        const button = document.querySelector('button')
+
+        // ข้อใดทำงานได้
+        button.addEventListener('click', () => alert("1")) // ได้ ตรงตัว
+        // button.removeEventListener('click', () => alert("1")) // ทำงานได้ == remove ออก
+        button.onclick = () => alert(2) // ได้ ตรงตัว
+
+    </script>
+</body>
+</html>

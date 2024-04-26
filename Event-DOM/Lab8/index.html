@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>Hide</button>
+    <br />
+    <span style="visibility: visible">Lorem ipsum dolor sit ame.</span>
+
+    <script>
+      const button = document.querySelector("button");
+      const text = document.querySelector("span")
+
+      
+      let toggleButton = () => button.textContent == "Hide" ? (button.textContent = "Show") : (button.textContent = "Hide");
+      let toggleText = () => text.style.visibility == "visible" ? (text.style.visibility = "hidden") : (text.style.visibility = "visible");
+     
+      function toggle() {
+        toggleText();
+        toggleButton();
+      };
+
+      button.onclick = toggle
+
+      
+      
+
+    </script>
+  </body>
+</html>

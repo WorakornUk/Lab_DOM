@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="xyz"></div>
+
+    <footer>
+        <ul>
+            <li class="list">
+                Home
+            </li>
+        </ul>
+    </footer>
+
+    <script>
+        const newH2 = document.createElement("h2");
+        newH2.textContent = "Y";
+        const root = document.getElementById("xyz");
+        root.append(newH2);
+        //before
+        //after
+        root.prepend("X");
+
+      document.querySelector("#xyz").innerHTML += "<h2>Z</h2>";
+    </script>
+</body>
+</html>

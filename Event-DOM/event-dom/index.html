@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Event แบบที่ 1 -->
+    <button onclick="alert('click WHATTTT !?')">Click</button>
+
+    <button id="1">Click 1</button>
+    <button id="2">Click 2</button>
+
+    <ul>
+      <li>John</li>
+      <li>Max</li>
+      <li>Jimmy</li>
+      <li>Zuck</li>
+    </ul>
+
+    <input type="text" placeholder="Enter something" />
+
+    <br /><br />
+    <a href="https://google.com">Go to Google</a>
+    <br /><br />
+
+    <form>
+      <input id="form" type="text" placeholder="enter your E-mail" />
+      <button>Login</button>
+    </form>
+
+    <br /><br />
+    <img
+      id="img"
+      src="https://www.squash.io/wp-content/uploads/2023/08/tutorias_default_image.jpg"
+      alt=""
+    />
+    <input id="file" type="file" multiple hidden />
+
+    <br /><br />
+    <button id="minus">-</button>
+    <span id="num">1</span>
+    <button id="plus">+</button>
+
+    <script>
+      // ##############
+      // ### button ###
+      // ##############
+      const button1 = document.getElementById("1");
+      const button2 = document.getElementById("2");
+      // fn
+      let click1 = () => alert("Click_____ 1");
+      let click2 = () => alert("Click_____ 2");
+      // add listener 1,2
+      button1.addEventListener("click", click1);
+      button2.addEventListener("click", click2);
+      // remove listener 1
+      setTimeout(() => button1.removeEventListener("click", click1), 5000);
+      // THIS w/ listener
+      button2.addEventListener("click", function () {
+        console.log(this);
+      });
+      // document.body.addEventListener('click', function() { console.log(this)})
+      // Button อยู่ใน Body เลยโดน log ทั้ง 2
+
+      // ##########
+      // ### li ###
+      // ##########
+      const list = document.querySelectorAll("li");
+      for (let li of list)
+        li.addEventListener("click", function () {
+          console.log(this.innerHTML);
+        });
+
+      // #############
+      // ### input ###
+      // #############
+      const input = document.querySelector("input");
+      input.addEventListener("input", function (event) {
+        console.log(event.target.value);
+        // console.log(event.currentTarget.value)
+      });
+
+      // #########
+      // ### a ###
+      // #########
+      const a = document.querySelector("a");
+      a.addEventListener("click", function (event) {
+        event.preventDefault();
+        alert("you cannot leave");
+      });
+
+      // #############
+      // ### forms ###
+      // #############
+      const form = document.querySelector("form");
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        alert("I won't let you!");
+      });
+
+      let inForm = document.getElementById("form");
+      inForm.addEventListener("keydown", function (event) {
+        console.log(event);
+        if (
+          event.key !== event.key.toUpperCase() &&
+          event.key !== "Backspace"
+        ) {
+          event.preventDefault()
+        }
+      });
+
+      // ###########
+      // ### IMG ###
+      // ###########
+      const inFile = document.getElementById("file");
+      const img = document.getElementById("img");
+
+      img.addEventListener("click", (event) => inFile.click());
+      // ทำให้ img เกิด event ของการ click ที่ inFile แทน
+
+      // ########################
+      // ### SHOPPING COUNTER ###
+      // ########################
+      const minusBtn = document.getElementById("minus");
+      const plusBtn = document.getElementById("plus");
+      const numCount = document.getElementById("num");
+
+      minusBtn.addEventListener("click", function () {
+        // get ค่า numCount
+        const curCount = +numCount.textContent;
+        const newCount = curCount > 0 ? curCount - 1 : curCount;
+        // assign new ลง numCount
+        numCount.textContent = newCount;
+      });
+
+      plusBtn.addEventListener("click", function () {
+        const curCount = +numCount.textContent;
+        const newCount = curCount + 1;
+
+        numCount.textContent = newCount;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      li {
+        list-style-type: none;
+      }
+      .textList {
+        border: none;
+        outline: none;
+      }
+      .textList:hover {
+        cursor: pointer;
+      }
+      .done {
+        color: green;
+        text-decoration: line-through;
+      }
+      #add:hover {
+        cursor: copy;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="add">Add</button>
+    <br />
+    <ul>
+      
+    </ul>
+
+    <script>
+      const add = document.getElementById("add");
+      let count = 1;
+      
+      add.onclick = () => {
+        let newInput = document.createElement("input");
+          newInput.setAttribute("readonly","")
+          newInput.setAttribute("class", "textList")
+          newInput.setAttribute("value", `Task ${count}`)
+        let newEdit = document.createElement("button");
+          newEdit.innerHTML = "Edit"
+          newEdit.setAttribute('id','edit')
+        let newDel = document.createElement("button");
+          newDel.textContent = "Delete"
+          newDel.setAttribute('id',"del")
+        let newLi = document.createElement("li");
+          newLi.appendChild(newInput);
+          newLi.appendChild(newEdit);
+          newLi.appendChild(newDel);
+
+        document.querySelector("ul").appendChild(newLi);
+        count++;
+
+        const edit = document.querySelectorAll("#edit");
+        const del = document.querySelectorAll("#del");
+        const list = document.querySelectorAll("li");
+        const text = document.querySelectorAll("input");
+
+
+        for (let i in list) {
+          text[i].onclick = (event) => event.target.hasAttribute("readonly") ? event.target.classList.toggle("done") : event.target.classList;
+          del[i].onclick = function () {
+              list[i].remove();
+              count--;
+          };
+          edit[i].onclick = function () {
+              text[i].toggleAttribute("readonly");
+              text[i].classList.toggle("textList");
+          };
+        }
+      };
+    </script>
+  </body>
+</html>
